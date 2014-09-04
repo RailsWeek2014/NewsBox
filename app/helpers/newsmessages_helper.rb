@@ -1,0 +1,2 @@
+module NewsmessagesHelper
+end
