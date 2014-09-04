@@ -20,7 +20,7 @@ class NewsmessagesController < ApplicationController
 	end
 
 	def create
-		@newsmessage = Newsmessage.new(newsmessage_params)
+		redirect_to newsmessages_path
 	end
 	
 
