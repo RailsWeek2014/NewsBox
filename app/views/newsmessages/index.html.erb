@@ -1,4 +1,16 @@
 <h2>Verfolgte Seiten</h2>
+	<% #= form_for(@search) do |f| %>
+	<%# = f.label :tags %>
+	<%#= f.text_field :tags %>
+	<%#= f.submit %>
+	<%# end %>
 
+	<% @newsmessage.each do |message| %> 
+	<div id="rssfeed">
+	<img src=<%= message.image %> alt=<%= message.title %> >
+	<a href=<%= message.url %>><%= message.title %></a> 
+	<%= message.comment %>
+	<%= message.tags %><br></div>
+	<%end%>
 	<br>
 <p><%= link_to "Neuen Feed hinzufügen", new_newsmessage_path %></p>

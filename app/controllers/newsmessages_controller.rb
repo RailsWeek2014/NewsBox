@@ -21,12 +21,18 @@ class NewsmessagesController < ApplicationController
 
 	def create
 		@newsmessage = Newsmessage.new(newsmessage_params)
+		
+		if @newsmessage.save
+			redirect_to newsmessages_path
+		else
+			render action: 'new'
+		end
 	end
 
-	
+
 	private
 	def newsmessage_params
-		params.require('newsmessage').permit('title','url','comment')
+		params.require('newsmessage').permit('title','url','comment','image','tags')
 	end
 
 end
