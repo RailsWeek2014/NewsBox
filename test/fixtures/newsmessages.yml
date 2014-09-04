@@ -5,9 +5,11 @@ one:
   url: MyString
   comment: MyText
   image: MyString
+  tags: MyString
 
 two:
   title: MyString
   url: MyString
   comment: MyText
   image: MyString
+  tags: MyString

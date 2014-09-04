@@ -22,3 +22,4 @@ Optional:
 
 Gems:
 feedjira holt und analysiert die RSS feeds
+devise zum User anlegen, mails verschicken

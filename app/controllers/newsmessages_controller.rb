@@ -12,18 +12,18 @@ class NewsmessagesController < ApplicationController
 	end
 
 	def delete
-		
+
 	end
 
 	def update
-		
+
 	end
 
 	def create
-		redirect_to newsmessages_path
+		@newsmessage = Newsmessage.new(newsmessage_params)
 	end
-	
 
+	
 	private
 	def newsmessage_params
 		params.require('newsmessage').permit('title','url','comment')

@@ -5,6 +5,7 @@ class CreateNewsmessages < ActiveRecord::Migration
       t.string :url
       t.text :comment
       t.string :image
+      t.string :tags
 
       t.timestamps
     end
