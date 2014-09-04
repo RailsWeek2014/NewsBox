@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'listeners/edit'
+
+  get 'listeners/new'
+
+  resources :listeners
+
   get 'newsmessages/edit'
 
   get 'newsmessages/new'

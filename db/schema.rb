@@ -11,14 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140904192949) do
+ActiveRecord::Schema.define(version: 20140904202618) do
+
+  create_table "listeners", force: true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.text     "comment"
+    t.string   "image"
+    t.string   "tags"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "newsmessages", force: true do |t|
     t.string   "title"
     t.string   "url"
     t.text     "comment"
     t.string   "image"
-    t.string   "tags"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

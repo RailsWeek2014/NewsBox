@@ -1,0 +1,9 @@
+<h2>Einstellungen</h2>
+<h3>Liste der überwachten Seiten<h3>
+<ul>
+	<% @listener.each do |list| %> 
+	<li>
+	<%= list.title %> | <%= list.url %> | <%= list.comment %> | <%= list.tags %> | <%= list.image %>
+	</li>
+	<%end%>
+<ul>
