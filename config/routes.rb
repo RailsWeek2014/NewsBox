@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'newsmessages/edit'
+
+  get 'newsmessages/new'
+
   resources :newsmessages
 
   # The priority is based upon order of creation: first created -> highest priority.
