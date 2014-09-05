@@ -5,10 +5,9 @@
 	<%#= f.submit %>
 	<%# end %>
 
-	<% @listener.all.map %>
-	<% #@feed.entries.each do |entry|%>
-	<%= #entry.title %>
-	<%= #entry.summary%> 
+	<%# @listener.each do |listelement|%>
+	<%# listelement %>
 
-	<% #end%>
+	<%= build_list :feeds %> 
+
 <p><%= link_to "Neuen Feed hinzufügen", new_newsmessage_path %></p>
