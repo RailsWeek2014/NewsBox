@@ -5,12 +5,10 @@
 	<%#= f.submit %>
 	<%# end %>
 
-	<% @newsmessage.each do |message| %> 
-	<div id="rssfeed">
-	<img src=<%= message.image %> alt=<%= message.title %> >
-	<div id="rsstext">
-	<a href=<%= message.url %>><%= message.title %></a> <br />
-	<%= message.comment %></div></div>
-	<%end%>
-	<br>
+	<% @listener.all.map %>
+	<% #@feed.entries.each do |entry|%>
+	<%= #entry.title %>
+	<%= #entry.summary%> 
+
+	<% #end%>
 <p><%= link_to "Neuen Feed hinzufügen", new_newsmessage_path %></p>

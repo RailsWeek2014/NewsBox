@@ -13,10 +13,9 @@ class ListenersController < ApplicationController
 		redirect_to newsmessages_path
 	end
 
-	private
+private
 	def listeners_params
 		params.require('listener').permit('title','url','comment','image','tags')
 	end
-
 
 end
