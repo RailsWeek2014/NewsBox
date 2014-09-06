@@ -1,7 +1,7 @@
 class NewsmessagesController < ApplicationController
 	def index
 		listener = Listener.all.map(&:url)
-		:feeds = Feedjira::Feed.fetch_and_parse @listener
+		FeedEntry.update_from_feed(listener)
 	#	@feed = feeds['http://heise.de.feedsportal.com/c/35207/f/653901/index.rss']
 	end
 

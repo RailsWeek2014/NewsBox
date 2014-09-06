@@ -3,8 +3,14 @@
 <ul style="list-style-type:none">
 	<% @listener.each do |list| %> 
 	<li>
-	<img src=<%= list.image %> style="float:left; margin:10px" ><div style="float:left"> 
-	<a href src=<%= list.url %>> <%= list.title %> </a> </div> <br /><div> <%= list.comment %> | <%= list.tags %> </div>
+		<ul style="float: left; background-color:green; margin:10px">
+			<img src=<%= list.image %> style="margin:10px; float: left" > 
+			<a href src=<%= list.url %>> <%= list.title %> </a>  
+			<%= list.comment %> | <%= list.tags %>  
+		</ul>
+		<div style="clear:both" />
 	</li>
 	<%end%>
 <ul>
+
+<p><%= link_to "Feeds Liste", newsmessages_path %></p>

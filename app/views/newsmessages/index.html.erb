@@ -7,7 +7,11 @@
 
 	<%# @listener.each do |listelement|%>
 	<%# listelement %>
+	<ul>
+  <%# byebug %>
+  <% for entry in FeedEntry.all %>
+  <li><a href=<%= entry.url %> ><%= entry.name %></a></li> 
+  <% end %>
+  </ul>
 
-	<%= build_list :feeds %> 
-
-<p><%= link_to "Neuen Feed hinzufügen", new_newsmessage_path %></p>
+<p><%= link_to "Feed Liste", listeners_path %></p>

@@ -2,8 +2,11 @@
 
 class FeedEntry < ActiveRecord::Base
 	def self.update_from_feed(feed_url)
-		feed = Feedjira::Feed.fetch_and_parse(feed_url)
-		add_entries(feed.add_entries)
+		feeds = Feedjira::Feed.fetch_and_parse(feed_url)
+		feed_url.each do |d|
+			feed = feeds[d]
+			add_entries(feed.entries)
+		end
 	end
 
 	def self.update_from_feed_continously(feed_url, delay_interval = 15.minutes)
@@ -19,7 +22,7 @@ class FeedEntry < ActiveRecord::Base
 	private
 
 	def self.add_entries(entries)
-		entries.each do |entry|
+		entries.each do |entry|		
 	    	unless exists? :guid => entry.id
 	        create!(
 	          :name         => entry.title,
