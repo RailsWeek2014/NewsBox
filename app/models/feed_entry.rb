@@ -4,8 +4,9 @@ class FeedEntry < ActiveRecord::Base
 	def self.update_from_feed(feed_url)
 		feeds = Feedjira::Feed.fetch_and_parse(feed_url)
 		feed_url.each do |d|
+			tags = Listener.find_by(url: d).tags
 			feed = feeds[d]
-			add_entries(feed.entries)
+			add_entries(feed.entries, tags)
 		end
 	end
 
@@ -21,17 +22,29 @@ class FeedEntry < ActiveRecord::Base
 
 	private
 
-	def self.add_entries(entries)
-		entries.each do |entry|		
-	    	unless exists? :guid => entry.id
-	        create!(
-	          :name         => entry.title,
-	          :summary      => entry.summary,
-	          :url          => entry.url,
-	          :published_at => entry.published,
-	          :guid         => entry.id
-	        )
-	    	end
+	def self.add_entries(entries, tags)
+		#delete_all
+		entries.each do |entry|
+			if include_any? entry.title, tags.split(/,/)
+		    	unless exists? :guid => entry.id 
+		        create!(
+		          :name         => entry.title,
+		          :summary      => entry.summary,
+		          :url          => entry.url,
+		          :published_at => entry.published,
+		          :guid         => entry.id
+		        )
+		    	end
+		    end
 	    end
+	end
+
+	def self.include_any? (title, array)
+		array.each do |element|
+			if title.include? element
+				return true
+			end
+		end
+		false
 	end
 end

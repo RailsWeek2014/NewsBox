@@ -9,7 +9,8 @@
 	<%# listelement %>
 	<ul>
   <%# byebug %>
-  <% for entry in FeedEntry.all %>
+  <!-- TODO: database desc -->
+  <% for entry in FeedEntry.order('published_at') %>
   <li><a href=<%= entry.url %> ><%= entry.name %></a></li> 
   <% end %>
   </ul>

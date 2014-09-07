@@ -1,12 +1,13 @@
 <h2>Einstellungen</h2>
 <h3>Liste der überwachten Seiten<h3>
 <ul style="list-style-type:none">
-	<% @listener.each do |list| %> 
+	<% @listeners.each do |listener| %> 
 	<li>
 		<ul style="float: left; background-color:green; margin:10px">
-			<img src=<%= list.image %> style="margin:10px; float: left" > 
-			<a href src=<%= list.url %>> <%= list.title %> </a>  
-			<%= list.comment %> | <%= list.tags %>  
+			<img src=<%= listener.image %> style="margin:10px; float: left" >  
+			<%= link_to listener.title,listener.url %>
+			<%= listener.comment %> | <%= listener.tags %><br />
+			(<%= link_to "ändern", edit_listener_path(listener) %>)			
 		</ul>
 		<div style="clear:both" />
 	</li>
