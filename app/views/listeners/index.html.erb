@@ -7,7 +7,10 @@
 			<img src=<%= listener.image %> style="margin:10px; float: left" >  
 			<%= link_to listener.title,listener.url %>
 			<%= listener.comment %> | <%= listener.tags %><br />
-			(<%= link_to "ändern", edit_listener_path(listener) %>)			
+			(<%= link_to "ändern", edit_listener_path(listener) %>|
+			<%= link_to "löschen", listener_path(listener),
+				data: { confirm: "#{listener.title} wirklich löschen?" },
+				method: :delete %>)			
 		</ul>
 		<div style="clear:both" />
 	</li>

@@ -2,6 +2,7 @@
 
 class FeedEntry < ActiveRecord::Base
 	def self.update_from_feed(feed_url)
+		delete_all
 		feeds = Feedjira::Feed.fetch_and_parse(feed_url)
 		feed_url.each do |d|
 			tags = Listener.find_by(url: d).tags
@@ -23,9 +24,8 @@ class FeedEntry < ActiveRecord::Base
 	private
 
 	def self.add_entries(entries, tags)
-		#delete_all
 		entries.each do |entry|
-			if include_any? entry.title, tags.split(/,/)
+			if include_any? entry.title, tags.split(/, /)
 		    	unless exists? :guid => entry.id 
 		        create!(
 		          :name         => entry.title,
