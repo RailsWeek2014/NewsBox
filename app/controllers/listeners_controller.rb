@@ -34,6 +34,7 @@ class ListenersController < ApplicationController
         @listener.destroy
         redirect_to listeners_path
     end
+    
 private
 	def listener_params
 		params.require('listener').permit('title','url','comment','image','tags')
