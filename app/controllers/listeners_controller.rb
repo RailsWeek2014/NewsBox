@@ -32,6 +32,7 @@ class ListenersController < ApplicationController
 
 	def destroy
         @listener = Listener.find(params[:id])
+        FeedEntry.remove_from_feed(@listener)
         @listener.destroy
         redirect_to listeners_path
     end

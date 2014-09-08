@@ -22,6 +22,10 @@ class FeedEntry < ActiveRecord::Base
 		end
 	end
 
+	def self.remove_from_feed(listener)
+		remove_entries(listener)
+	end
+
 	private
 
 	def self.add_entries(entries, listener)
@@ -48,5 +52,9 @@ class FeedEntry < ActiveRecord::Base
 			end
 		end
 		false
+	end
+
+	def self.remove_entries(listener)
+		delete_all(listener_id: listener.id)
 	end
 end

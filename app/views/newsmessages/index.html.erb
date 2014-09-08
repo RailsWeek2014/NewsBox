@@ -1,17 +1,39 @@
+<style type="text/css">
+
+img{
+  margin:10px; 
+  float: left;
+  width: 80px;
+  heigt: 80px;
+  border: 2px solid;
+} 
+
+div#feeds{
+  background-color: brown;
+  padding: 2px;
+  margin: 10px;
+  float:left;
+  width: 90%;
+}
+
+p{
+  clear: both;
+}
+
+</style>
 <h2>Feeds</h2>
 	<% #= form_for(@search) do |f| %>
 	<%# = f.label :tags %>
 	<%#= f.text_field :tags %>
 	<%#= f.submit %>
 	<%# end %>
-  <ul>
   <!-- TODO: database desc -->
   <% for entry in FeedEntry.order('published_at desc') %>
-  <li> 
+  <div id="feeds">
+    <%= image_tag(entry.listener.image)%>
   	<%=link_to entry.name, entry.url %>
-  	
-  </li> 
+  </div>
+  
   <% end %>
-  </ul>
 
 <p><%= link_to "Feed Liste", listeners_path %></p>
