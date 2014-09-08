@@ -4,14 +4,13 @@
 	<%#= f.text_field :tags %>
 	<%#= f.submit %>
 	<%# end %>
-
-	<%# @listener.each do |listelement|%>
-	<%# listelement %>
-	<ul>
-  <%# byebug %>
+  <ul>
   <!-- TODO: database desc -->
-  <% for entry in FeedEntry.order('published_at') %>
-  <li><a href=<%= entry.url %> ><%= entry.name %></a></li> 
+  <% for entry in FeedEntry.order('published_at desc') %>
+  <li> 
+  	<%=link_to entry.name, entry.url %>
+  	
+  </li> 
   <% end %>
   </ul>
 

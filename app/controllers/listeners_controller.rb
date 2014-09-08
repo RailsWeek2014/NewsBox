@@ -23,6 +23,7 @@ class ListenersController < ApplicationController
 	def update
 		@listener = Listener.find(params[:id])
 		if @listener.update_attributes(listener_params)
+			
 			redirect_to listeners_path
 		else
 			render action: "edit"
@@ -34,7 +35,7 @@ class ListenersController < ApplicationController
         @listener.destroy
         redirect_to listeners_path
     end
-    
+
 private
 	def listener_params
 		params.require('listener').permit('title','url','comment','image','tags')

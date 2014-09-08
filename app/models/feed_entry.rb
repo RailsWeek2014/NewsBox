@@ -1,13 +1,14 @@
 # Source http://railscasts.com/episodes/168-feed-parsing
 
 class FeedEntry < ActiveRecord::Base
+	belongs_to :listener
+
 	def self.update_from_feed(feed_url)
-		delete_all
 		feeds = Feedjira::Feed.fetch_and_parse(feed_url)
 		feed_url.each do |d|
-			tags = Listener.find_by(url: d).tags
+			listener = Listener.find_by(url: d)
 			feed = feeds[d]
-			add_entries(feed.entries, tags)
+			add_entries(feed.entries, listener)
 		end
 	end
 
@@ -23,16 +24,17 @@ class FeedEntry < ActiveRecord::Base
 
 	private
 
-	def self.add_entries(entries, tags)
+	def self.add_entries(entries, listener)
 		entries.each do |entry|
-			if include_any? entry.title, tags.split(/, /)
+			if include_any? entry.title, listener.tags.split(/, /)
 		    	unless exists? :guid => entry.id 
 		        create!(
 		          :name         => entry.title,
 		          :summary      => entry.summary,
 		          :url          => entry.url,
 		          :published_at => entry.published,
-		          :guid         => entry.id
+		          :guid         => entry.id,
+		          :listener_id	=> listener.id
 		        )
 		    	end
 		    end
