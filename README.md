@@ -9,7 +9,7 @@ Features:
 - Es können Notizen bzw. Kommentare hinzugefügt werden um Nachrichten persöhnlich zu bewerten
 - Kommen neue Nachrichten werden diese mit einer Mail an den User verschickt
 - Updates die noch nicht gelesen wurden werden erkennbar angezeigt
-- Auf die Verfolgungsliste können Filter angewendet. Es können z.B. nur Nachrichten angezeigt werden die einen bestimmten Begriff (oder Mehrere beinhalten)
+- Auf die Verfolgungsliste können Filter angewendet werden. Es können z.B. nur Nachrichten angezeigt werden die einen bestimmten Begriff (oder mehrere) beinhalten
 
 Jeder User kann nur seine Verfolgunsliste einsehen und kein Sharing oder dergleichen betreiben!
 

@@ -15,25 +15,30 @@ div#feeds{
   float:left;
   width: 90%;
 }
-
+div#comments{
+  float:right;
+}
 p{
   clear: both;
 }
 
 </style>
 <h2>Feeds</h2>
-	<% #= form_for(@search) do |f| %>
-	<%# = f.label :tags %>
-	<%#= f.text_field :tags %>
+	<%#= form_for(@search) do |f| %>
+	<%#= f.label :temp_tags %>
+	<%#= f.text_field :temp_tags %>
 	<%#= f.submit %>
 	<%# end %>
-  <!-- TODO: database desc -->
+
   <% for entry in FeedEntry.order('published_at desc') %>
   <div id="feeds">
     <%= image_tag(entry.listener.image)%>
   	<%=link_to entry.name, entry.url %>
+      <div id="comments">
+        <%= link_to "Kommentar", new_comment_path(entry) %>
+        <%= count_comments(entry) %>
+      </div>
   </div>
-  
   <% end %>
 
 <p><%= link_to "Feed Liste", listeners_path %></p>

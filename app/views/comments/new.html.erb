@@ -1,0 +1,10 @@
+<h1>Kommentar</h1>
+<%= form_for(@comment) do |c| %>
+<p>
+<%= c.label :comment %><br>
+<%= c.text_area :comment %>
+</p>
+<p>
+<%= c.submit %>
+</p>
+<% end %>

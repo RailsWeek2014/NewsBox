@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'comments/new'
+
+  resources :comments
+
   get 'listeners/edit'
 
   get 'listeners/new'

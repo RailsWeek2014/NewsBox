@@ -10,7 +10,7 @@ class ListenersController < ApplicationController
 	def create
 		@listener = Listener.new(listener_params)
 		if @listener.save
-		redirect_to newsmessages_path
+		redirect_to listeners_path
 		else
 			render action: "new"
 		end
