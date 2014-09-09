@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'comments/new'
+  
 
   resources :comments
 
@@ -14,6 +14,12 @@ Rails.application.routes.draw do
   get 'newsmessages/new'
 
   resources :newsmessages
+
+  resources :feed_entries, only:[] do 
+    resources :comments, only: [:new, :create]
+  end
+
+  # get '/abc/:a/:b/:c' => 'listeners#new' example
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

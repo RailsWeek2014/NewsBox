@@ -2,6 +2,7 @@
 
 class FeedEntry < ActiveRecord::Base
 	belongs_to :listener
+	has_many :comments
 
 	def self.update_from_feed(feed_url)
 		feeds = Feedjira::Feed.fetch_and_parse(feed_url)

@@ -1,26 +1,19 @@
-body{
-	background-color: blue;
-
-}
-
 .field_with_errors {
 	background-color: red;
 }
 
-img{
-	margin:10px; 
-	float: left;
-	width: 10px;
-	heigt: 10px;
-}
-
 ul{
 	float: left; 
-	background-color:green; 
 	margin:10px;
 	list-style-type:none;
 }
 
-#splitter{
+li{
+	background-color:green; 
+	width:600px;
+	margin: 10px;
+}
+
+#floatstop{
 	clear: both;	
 }

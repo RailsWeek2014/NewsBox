@@ -1,14 +1,21 @@
 class CommentsController < ApplicationController
  
-  def new
+  def new 
+  	@entry = FeedEntry.find(params[:feed_entry_id])
   	@comment = Comment.new
+  	@comment.feed_entry = @entry
   end
 
-  def create feedentry
-  	@comment = Comment.new(comments_param)
+  def create
+  	@comment = Comment.new(comments_params)
 
   	if @comment.save
   		redirect_to newsmessages_path
   	end
   end
+
+  private
+	def comments_params
+		params.require('comment').permit('comment','feed_entry_id')
+	end
 end

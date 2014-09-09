@@ -1,29 +1,5 @@
-<style type="text/css">
-
-img{
-  margin:10px; 
-  float: left;
-  width: 80px;
-  heigt: 80px;
-  border: 2px solid;
-} 
-
-div#feeds{
-  background-color: brown;
-  padding: 2px;
-  margin: 10px;
-  float:left;
-  width: 90%;
-}
-div#comments{
-  float:right;
-}
-p{
-  clear: both;
-}
-
-</style>
-<h2>Feeds</h2>
+<div class="nav"><h2>Feeds</h2>
+<p><%= link_to "Einstellungen", listeners_path %></p> </div>
 	<%#= form_for(@search) do |f| %>
 	<%#= f.label :temp_tags %>
 	<%#= f.text_field :temp_tags %>
@@ -35,10 +11,8 @@ p{
     <%= image_tag(entry.listener.image)%>
   	<%=link_to entry.name, entry.url %>
       <div id="comments">
-        <%= link_to "Kommentar", new_comment_path(entry) %>
-        <%= count_comments(entry) %>
+        <%= link_to "Kommentar", new_feed_entry_comment_path(entry) %>
+        <%= entry.comments.count %>
       </div>
   </div>
   <% end %>
-
-<p><%= link_to "Feed Liste", listeners_path %></p>

@@ -1,5 +1,6 @@
 <h1>Kommentar</h1>
 <%= form_for(@comment) do |c| %>
+<%= c.hidden_field :feed_entry_id %>
 <p>
 <%= c.label :comment %><br>
 <%= c.text_area :comment %>

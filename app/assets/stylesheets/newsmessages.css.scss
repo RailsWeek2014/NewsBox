@@ -1,28 +1,13 @@
-body{
-	
+div#feeds{
+  background-color: brown;
+  padding: 2px;
+  margin: 10px;
+  float:left;
+  width: 90%;
 }
-
-header{
-	
+div#comments{
+  float:right;
 }
-
-main{
-	
-}
-
-img{
-	width: 120px;
-	height: 100px;
-}
-
-#rssfeed{
-	//background-color: green;
-	marging: 20px;
-	width:650px
-}
-
-#rsstext{
-	//background-color: red;
-	width: 500px;
-	float:right;
+p{
+  clear: both;
 }
