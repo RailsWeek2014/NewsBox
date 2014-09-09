@@ -1,0 +1,11 @@
+<li>
+			<%= image_tag(listener.image) %>
+			<%= link_to listener.title,listener.url %> <br />
+			<%= listener.comment %> <br /> <%= listener.tags %><br />
+			(<%= link_to "ändern", edit_listener_path(listener) %>|
+			<%= link_to "löschen", listener_path(listener),
+				data: { confirm: "#{listener.title} wirklich löschen?" },
+				method: :delete %>)			
+	
+		<div id="floatstop" />
+</li>

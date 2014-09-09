@@ -1,26 +1,2 @@
 <h1>Neue Webseite hinzufügen</h1>
-<%= form_for(@listener) do |f| %>
-<p>
-<%= f.label :title %><br>
-<%= f.text_field :title %>
-</p>
-<p>
-<%= f.label :url %><br>
-<%= f.text_field :url %>
-</p>
-<p>
-<%= f.label :comment %><br>
-<%= f.text_area :comment %>
-</p>
-<p>
-<%= f.label :tags %><br>
-<%= f.text_field :tags %>
-</p>
-<p>
-<%= f.label :image %><br>
-<%= f.text_field :image %>
-</p>
-<p>
-<%= f.submit %>
-</p>
-<% end %>
+	<%= render 'form' %>

@@ -1,5 +1,4 @@
-<h1>Neuen Feed hinzufügen</h1>
-<%= form_for(@newsmessage) do |f| %>
+<%= form_for(@listener) do |f| %>
 <p>
 <%= f.label :title %><br>
 <%= f.text_field :title %>
@@ -11,6 +10,10 @@
 <p>
 <%= f.label :comment %><br>
 <%= f.text_area :comment %>
+</p>
+<p>
+<%= f.label :tags %><br>
+<%= f.text_field :tags %>
 </p>
 <p>
 <%= f.label :image %><br>

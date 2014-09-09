@@ -10,8 +10,12 @@ class CommentsController < ApplicationController
   	@comment = Comment.new(comments_params)
 
   	if @comment.save
-  		redirect_to newsmessages_path
+  		redirect_to feed_entries_path
   	end
+  end
+
+  def delete
+    
   end
 
   private

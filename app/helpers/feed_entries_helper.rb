@@ -1,4 +1,4 @@
-module NewsmessagesHelper
+module FeedEntriesHelper
 	def image_finder text
 		nil
 	end

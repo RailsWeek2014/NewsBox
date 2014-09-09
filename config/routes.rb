@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create]
   end
 
+  resources :feed_entries
+
   # get '/abc/:a/:b/:c' => 'listeners#new' example
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,19 +1,9 @@
 <h2>Einstellungen</h2>
 <h3>Liste der überwachten Seiten<h3>
-<ul>
-	<% @listeners.each do |listener| %> 
-	<li>
-			<%= image_tag(listener.image) %>
-			<%= link_to listener.title,listener.url %> <br />
-			<%= listener.comment %> <br /> <%= listener.tags %><br />
-			(<%= link_to "ändern", edit_listener_path(listener) %>|
-			<%= link_to "löschen", listener_path(listener),
-				data: { confirm: "#{listener.title} wirklich löschen?" },
-				method: :delete %>)			
-	
-		<div id="floatstop" />
-	</li>
-	<%end%>
-<ul>
 <p><%= link_to "Neue Seite", new_listener_path %></p>
-<p><%= link_to "Feeds Liste", newsmessages_path %></p>
+<p><%= link_to "Feeds Liste", feed_entries_path %></p>
+
+<ul>
+	<%= render @listeners %>
+</ul>
+<ul>

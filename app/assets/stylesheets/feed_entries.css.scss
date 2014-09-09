@@ -1,0 +1,16 @@
+// Place all the styles related to the FeedEntrys controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+div#feeds{
+  background-color: brown;
+  padding: 2px;
+  margin: 10px;
+  float:left;
+  width: 90%;
+}
+div#comments{
+  float:right;
+}
+p{
+  clear: both;
+}
