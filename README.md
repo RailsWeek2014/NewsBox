@@ -23,6 +23,7 @@ Optional:
 Gems:
 feedjira holt und analysiert die RSS feeds
 devise zum User anlegen, mails verschicken
+ransack Metasuche
 
 Image:
 "New" - http://findicons.com/icon/177417/label_new_green?id=177417 

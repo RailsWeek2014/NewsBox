@@ -46,3 +46,6 @@ gem 'byebug'
 
 # RSS retrieve
 gem 'feedjira'
+
+# Metasearch
+gem 'ransack'

@@ -5,5 +5,7 @@
         <%= link_to "Kommentar", new_feed_entry_comment_path(feed_entry) %>
         <%= feed_entry.comments.count %>
       </div>
-    <div id="ico"> <%= image_tag("new28.png") %> </div>
+    <% if feed_entry.new? %>
+    	<div id="ico"> <%= image_tag("new.png") %> </div>
+    <% end %>	
 </div>

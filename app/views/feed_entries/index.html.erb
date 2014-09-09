@@ -1,11 +1,17 @@
+<!== Search: https://github.com/activerecord-hackery/ransack ==>
 <div class="nav"><h2>Feeds</h2>
 <p><%= link_to "Einstellungen", listeners_path %></p> </div>
-	<%#= form_for(@search) do |f| %>
-	<%#= f.label :temp_tags %>
-	<%#= f.text_field :temp_tags %>
-	<%#= f.submit %>
-	<%# end %>
+	<%= search_form_for @q do |f| %>
+    <%= f.label :name_cont%>
+    <%= f.search_field :name_cont %>
 
-  <% #for entry in FeedEntry.order('published_at desc') %>
+    <%= f.submit %>
+
+  <%end%>
+
+  <%#= content_tag :table do %>
+    <%#= content_tag :th, sort_link(@q, :name) %>
+  <% #end %>
+
+
   <%= render @feed_entries %>
-  <%# end %>
