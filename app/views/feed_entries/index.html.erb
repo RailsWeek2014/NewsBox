@@ -6,13 +6,6 @@
 	<%#= f.submit %>
 	<%# end %>
 
-  <% for entry in FeedEntry.order('published_at desc') %>
-  <div id="feeds">
-    <%= image_tag(entry.listener.image)%>
-  	<%=link_to entry.name, entry.url %>
-      <div id="comments">
-        <%= link_to "Kommentar", new_feed_entry_comment_path(entry) %>
-        <%= entry.comments.count %>
-      </div>
-  </div>
-  <% end %>
+  <% #for entry in FeedEntry.order('published_at desc') %>
+  <%= render @feed_entries %>
+  <%# end %>

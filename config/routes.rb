@@ -9,12 +9,6 @@ Rails.application.routes.draw do
 
   resources :listeners
 
-  get 'newsmessages/edit'
-
-  get 'newsmessages/new'
-
-  resources :newsmessages
-
   resources :feed_entries, only:[] do 
     resources :comments, only: [:new, :create]
   end

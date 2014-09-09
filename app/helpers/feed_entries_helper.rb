@@ -1,5 +1,5 @@
 module FeedEntriesHelper
-	def image_finder text
+	def entry_new?
 		nil
 	end
 

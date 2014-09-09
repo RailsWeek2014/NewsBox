@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20140908135703) do
     t.string   "url"
     t.datetime "published_at"
     t.string   "guid"
+    t.string   "image"
+    t.boolean  "new"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "listener_id"
@@ -41,15 +43,6 @@ ActiveRecord::Schema.define(version: 20140908135703) do
     t.text     "comment"
     t.string   "image"
     t.string   "tags"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "newsmessages", force: true do |t|
-    t.string   "title"
-    t.string   "url"
-    t.text     "comment"
-    t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

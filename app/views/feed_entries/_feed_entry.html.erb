@@ -1,0 +1,9 @@
+<div id="feeds">
+    <%= image_tag(feed_entry.image)%>
+  	<%=link_to feed_entry.name, feed_entry.url %>
+      <div id="comments">
+        <%= link_to "Kommentar", new_feed_entry_comment_path(feed_entry) %>
+        <%= feed_entry.comments.count %>
+      </div>
+    <div id="ico"> <%= image_tag("new28.png") %> </div>
+</div>

@@ -8,9 +8,24 @@ div#feeds{
   float:left;
   width: 90%;
 }
+
 div#comments{
   float:right;
 }
+
 p{
   clear: both;
+}
+
+div#ico{
+  img{
+    margin:10px; 
+    width: 60px;
+    heigt: 60px;
+    border: 0px solid;
+    position: relative;
+    bottom: -40px;
+    left: -140px;
+    z-index: 2;
+  }
 }
