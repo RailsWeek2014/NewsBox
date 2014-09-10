@@ -1,10 +1,11 @@
 <div id="entry">
     <% entry_older feed_entry %>    
     <% if feed_entry.new? %>
-     <div id="ico"> <%= image_tag("new.png") %> </div>
+     <div id="ico"> <%= image_tag("new46.png") %> </div>
     <% end %>
     <%= image_tag(feed_entry.image)%>
   	<%=link_to feed_entry.name, feed_entry.url %>
+    <%= link_to 'Details', feed_entry_path(feed_entry)%>
     <div id="comments">
         <%= link_to "Kommentar", new_feed_entry_comment_path(feed_entry) %>
         <%= feed_entry.comments.count %>

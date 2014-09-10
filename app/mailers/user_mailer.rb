@@ -4,7 +4,7 @@ class UserMailer < ActionMailer::Base
   def send_rss entry, email
   	mail(to: email,
   		subject: entry.title,
-  		content_type: "text/html",
+  		content_type: "text/text",
   		body: entry.summary)
   	
   end

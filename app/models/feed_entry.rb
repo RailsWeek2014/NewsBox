@@ -4,12 +4,12 @@ class FeedEntry < ActiveRecord::Base
 	belongs_to :listener
 	has_many :comments
 
-	def self.update_from_feed(feed_url)
+	def self.update_from_feed(feed_url, user)
 		feeds = Feedjira::Feed.fetch_and_parse(feed_url)
 		feed_url.each do |d|
 			listener = Listener.find_by(url: d)
 			feed = feeds[d]
-			add_entries(feed.entries, listener)
+			add_entries(feed.entries, listener, user)
 		end
 	end
 
@@ -30,7 +30,7 @@ class FeedEntry < ActiveRecord::Base
 
 	private
 
-	def self.add_entries(entries, listener)
+	def self.add_entries(entries, listener, user)
 		entries.each do |entry|
 			if include_any?(entry.title, listener.tags.split(/, /))|| listener.tags.empty?
 		    #if entry.ransack(name_or_summary_cont_any: listener.tags.split(/, /)).result.count > 0
@@ -45,7 +45,7 @@ class FeedEntry < ActiveRecord::Base
 			          :image        => listener.image,
 			          :new          => true
 			        )
-			        UserMailer.send_rss(entry, "test@mail.de") 
+			        UserMailer.send_rss(entry, user.email) 
 		    	end
 		    end
 	    end

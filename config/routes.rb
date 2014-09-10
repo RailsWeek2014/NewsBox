@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
 
+  get 'feed_entries/show'
+
   get 'pages/home'
 
   devise_for :users

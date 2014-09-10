@@ -1,16 +1,13 @@
 <!== Search: https://github.com/activerecord-hackery/ransack ==>
-<div class="nav">
- <div id="settings"> <%= link_to "Einstellungen", listeners_path %></div>
- <div id="search">
+<%= render 'layouts/settings' %>
+<div id="search">
   <%= search_form_for @q do |f| %>
-    <%= f.label :name_cont%>
+    <%= f.label :Feed%>
     <%= f.search_field :name_cont %>
 
     <%= f.submit %>
 
   <%end%>
-  </div>
-  <%= render 'layouts/userinterface' %>
 </div>
 
   <%#= content_tag :table do %>

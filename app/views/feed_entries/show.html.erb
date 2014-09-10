@@ -1,0 +1,19 @@
+<h2>Detail zum Favoriten</h2>
+<p>
+	<b>Titel:</b>
+	<%= @feed_entry.name %>
+</p>
+	<p>
+	<b>URL:</b>
+	<%= link_to @feed_entry.url, @feed_entry.url %>
+</p>
+<p>
+	<b>Veröffentlicht am</b>
+	<%= @feed_entry.published_at %>
+</p>
+
+<p>
+	<% search_comments(@feed_entry).each do |comment| %>
+		<%= render partial: 'comment', locals: {comment: comment}  %>
+	<% end %>
+</p>

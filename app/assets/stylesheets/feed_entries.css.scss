@@ -22,10 +22,6 @@ div#entry{
   position:relative;
 }
 
-div#comments{
-  float:right;
-}
-
 p{
   clear: both;
 }
@@ -44,8 +40,15 @@ div#ico{
   }
 }
 
-#comments{
+div#comments{
  position: absolute;
- bottom: 0px;
- right: 0px; 
+ bottom: 5px;
+ right: 5px; 
 }
+
+div#search{
+  float:right;
+  margin-top: 80px;
+  margin-right: 25%;
+}
+

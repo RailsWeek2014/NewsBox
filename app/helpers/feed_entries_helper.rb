@@ -8,4 +8,8 @@ module FeedEntriesHelper
 	def count_comments entry
 		Comment.where(feed_entry_id: entry.id).count
 	end
+
+	def search_comments entry
+		Comment.where(feed_entry_id: entry.id)
+	end
 end
