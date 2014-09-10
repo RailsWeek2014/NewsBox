@@ -11,9 +11,10 @@
 			<h1>Newsbox</h1>
 			<% if user_signed_in? %>
 				<div id="headersettings">
-					<%= link_to "Einstellungen", listeners_path %> 
+					<%= image_tag('three115.png',size:'20x20') %>
+					<%= link_to "Einstellungen", listeners_path %> <br />
+					<%= current_user.email %>
 					<%= button_to "Abmelden",  destroy_user_session_path, method: :delete%>
-					<%= image_tag('three115.png',size:'40x40') %>
 				</div>
 			<% end %>
 		</header>

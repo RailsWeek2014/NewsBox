@@ -6,16 +6,11 @@ body{
 position: static;
 }
 
-main{
-  background-color: orange;
-  text-align: center;
-}
-
 header{
   position: static;
-	border-bottom: 5px solid;
-	padding-left: 3px;
+  border-bottom: 5px solid;
   width: 100%;
+  padding: 2px;
   font-size: 20px;
   background-color: green;
 }
@@ -23,7 +18,13 @@ header{
 #headersettings{
   position: absolute;
   right: 3%;
-  top: 8%;
+  top: 5%;
+  text-align: center;
+}
+
+main{
+  background-color: orange;
+  text-align: center;
 }
 
 o_img{
@@ -32,7 +33,17 @@ o_img{
   heigt: 90px;
   border: 2px solid;
 } 
+/*Link decorations*/
+a:link {
+  text-decoration: none;
+  color: #000000;
+}
+a:hover {
+  text-decoration: underline;
+  color: blue;
+}
 
+/*Messages*/
 #notice {
 	border: 1px solid $gruen;
 	background-color: #D8FFBB;
