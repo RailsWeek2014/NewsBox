@@ -15,11 +15,13 @@ class CommentsController < ApplicationController
   end
 
   def show
-      @comment = Comment.find(params[:id])
+    @comment = Comment.find(params[:id])
   end
 
   def delete
-    
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to listeners_path, alert: "Comment #{@comment.title} wurde erfolgreich gelöscht."
   end
 
   private

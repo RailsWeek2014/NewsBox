@@ -36,7 +36,7 @@ class ListenersController < ApplicationController
         @listener = Listener.find(params[:id])
         FeedEntry.remove_from_feed(@listener)
         @listener.destroy
-        redirect_to listeners_path, alert: "Favorit #{@listener.title} wurde erfolgreich gelöscht."
+        redirect_to listeners_path, alert: "Link #{@listener.title} wurde erfolgreich gelöscht."
     end
 
 private

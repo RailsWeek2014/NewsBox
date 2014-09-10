@@ -1,4 +1,4 @@
-<h2>Detail zum Favoriten</h2>
+<h2>Feed</h2>
 <p>
 	<b>Titel:</b>
 	<%= @feed_entry.name %>
@@ -11,9 +11,13 @@
 	<b>Veröffentlicht am</b>
 	<%= @feed_entry.published_at %>
 </p>
-
+<p>
+	Kommentar Erstellen
+</p>
 <p>
 	<% search_comments(@feed_entry).each do |comment| %>
 		<%= render partial: 'comment', locals: {comment: comment}  %>
 	<% end %>
+	<br />
+	<%= link_to 'Zurück', feed_entries_path %>
 </p>
