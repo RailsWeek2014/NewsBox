@@ -12,9 +12,6 @@
 	<%= @feed_entry.published_at %>
 </p>
 <p>
-	Kommentar Erstellen
-</p>
-<p>
 	<% search_comments(@feed_entry).each do |comment| %>
 		<%= render partial: 'comment', locals: {comment: comment}  %>
 	<% end %>
