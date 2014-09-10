@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
   
-
-  get 'feed_entries/show'
-
   get 'pages/home'
 
   devise_for :users
@@ -14,11 +11,10 @@ Rails.application.routes.draw do
 
   resources :listeners
 
-  resources :feed_entries, only:[] do 
+  resources :feed_entries do 
     resources :comments, only: [:new, :create]
+    get 'redirect' 
   end
-
-  resources :feed_entries
 
   root to: "pages#home"
 

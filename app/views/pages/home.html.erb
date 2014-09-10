@@ -1,6 +1,7 @@
 <% if user_signed_in? %>
-<p><%= link_to "Feeds", feed_entries_path %></p>
-<p><%= link_to "Abmelden", destroy_user_session_url, method: :delete %></p>
+	<% redirect %>
+<p><%#= link_to "Feeds", feed_entries_path %></p>
+<p><%#= link_to "Abmelden", destroy_user_session_url, method: :delete %></p>
 <% else %>
 <p><%= link_to "Benutzerkonto erstellen", new_user_registration_path %></p>
 oder

@@ -8,6 +8,12 @@ class FeedEntriesController < ApplicationController
 		#@feed_entries = FeedEntry.order('published_at desc')
 	end
 
+	def redirect 
+		@feed_entry = FeedEntry.find(params[:feed_entry_id])
+		@feed_entry.update_column(:new, false)
+		redirect_to @feed_entry.url
+	end
+
 	def show
 		@feed_entry = FeedEntry.find(params[:id])
 	end

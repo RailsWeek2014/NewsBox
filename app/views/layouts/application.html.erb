@@ -7,6 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+		<header>
+			<h1>Newsbox</h1>
+			<% if user_signed_in? %>
+				<div id="headersettings">
+					<%= link_to "Einstellungen", listeners_path %> 
+					<%= button_to "Abmelden",  destroy_user_session_path, method: :delete%>
+					<%= image_tag('three115.png',size:'40x40') %>
+				</div>
+			<% end %>
+		</header>
+
 		<% if flash[:alert] %>
 			<p id="alert">
 			<%= flash[:alert] %>
@@ -18,14 +29,10 @@
 			</p>
 		<% end %>
 
-		<div id="header">
-			<h1>RSS Newsbox</h1>
-		</div>
-
-		<div id="main">
+		<main>
 			<%= yield %>
-		</div>
+		</main>
 
-		<div style="clear: both">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> and <a href="http://www.icons8.com" title="Icons8">Icons8</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>
+		<div style="clear: both">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> and <a href="http://www.icons8.com" title="Icons8">Icons8</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> are licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>
 </body>
 </html>
