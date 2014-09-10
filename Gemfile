@@ -49,3 +49,6 @@ gem 'feedjira'
 
 # Metasearch
 gem 'ransack'
+
+# Devise
+gem 'devise'

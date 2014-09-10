@@ -7,13 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div id="container">
-		<header>
-			<h1>RSS Feedliste</h1>
-		<header>
-		<main>
+		<% if flash[:alert] %>
+			<p id="alert">
+			<%= flash[:alert] %>
+			</p>	
+		<% end %>
+		<% if flash[:alert] %>
+			<p id="alert">
+				<%= flash[:alert] %>
+			</p>
+		<% end %>
+
+		<div id="header">
+			<h1>RSS Newsbox</h1>
+		</div>
+
+		<div id="main">
 			<%= yield %>
-		</main>
-	</div>
+		</div>
 </body>
 </html>

@@ -1,3 +1,10 @@
+<% if @listener.errors.any? %>
+<ul>
+	<% @listener.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+	<% end %>
+</ul>
+<% end%>
 <%= form_for(@listener) do |f| %>
 <p>
 <%= f.label :title %><br>

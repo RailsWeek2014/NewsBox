@@ -1,6 +1,6 @@
 class ListenersController < ApplicationController
 	def index
-		@listeners = Listener.all
+		@listeners = current_user.listeners
 	end
 
 	def new 
@@ -10,7 +10,9 @@ class ListenersController < ApplicationController
 	def create
 		@listener = Listener.new(listener_params)
 		if @listener.save
-		redirect_to listeners_path
+			current_user.listeners << @listener
+			redirect_to listeners_path,
+			notice: "Favorit #{@listener.title}wurde erfolgreich angelegt."
 		else
 			render action: "new"
 		end
@@ -34,7 +36,7 @@ class ListenersController < ApplicationController
         @listener = Listener.find(params[:id])
         FeedEntry.remove_from_feed(@listener)
         @listener.destroy
-        redirect_to listeners_path
+        redirect_to listeners_path, alert: "Favorit #{@listener.title} wurde erfolgreich gelöscht."
     end
 
 private

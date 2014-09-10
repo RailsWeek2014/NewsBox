@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   
 
+  get 'pages/home'
+
+  devise_for :users
   resources :comments
 
   get 'listeners/edit'
@@ -14,6 +17,8 @@ Rails.application.routes.draw do
   end
 
   resources :feed_entries
+
+  root to: "pages#home"
 
   # get '/abc/:a/:b/:c' => 'listeners#new' example
 

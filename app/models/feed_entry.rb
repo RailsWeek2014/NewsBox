@@ -33,6 +33,7 @@ class FeedEntry < ActiveRecord::Base
 	def self.add_entries(entries, listener)
 		entries.each do |entry|
 			if include_any? entry.title, listener.tags.split(/, /)
+		    #if entry.ransack(name_or_summary_cont_any: listener.tags.split(/, /)).result.count > 0
 		    	unless exists? :guid => entry.id 
 		        create!(
 		          :name         => entry.title,
@@ -51,7 +52,7 @@ class FeedEntry < ActiveRecord::Base
 
 	def self.include_any? (title, array)
 		array.each do |element|
-			if title.include? element
+			if title.downcase.include? element.downcase
 				return true
 			end
 		end

@@ -6,6 +6,7 @@ class CreateListeners < ActiveRecord::Migration
       t.text :comment
       t.string :image
       t.string :tags
+      
 
       t.timestamps
     end
