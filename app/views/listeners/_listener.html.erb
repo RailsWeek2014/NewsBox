@@ -1,11 +1,21 @@
 <li>
 			<%= image_tag(listener.image) %>
-			<%= link_to listener.title,listener.url %> <br />
-			<%= listener.comment %> <br /> <%= listener.tags %><br />
+			<div id="text_title">
+				<b>Name:</b> <br /><%= link_to listener.title,listener.url %>
+			</div>
+			<b>Kommentar:</b> <br />
+			<%= listener.comment %> <br /> 
+			<b>Tags:</b> <br />
+			<% if listener.tags.empty? %>
+				....
+			<% else %>
+				<%= listener.tags %>
+			<%end%>
+			<br /><b>
 			(<%= link_to "ändern", edit_listener_path(listener) %>|
 			<%= link_to "löschen", listener_path(listener),
 				data: { confirm: "#{listener.title} wirklich löschen?" },
-				method: :delete %>)			
+				method: :delete %>)</b>			
 	
 		<div id="floatstop" />
 </li>

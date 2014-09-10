@@ -19,20 +19,20 @@
 			<% end %>
 		</header>
 
+		<main>
+			<%= yield %>
+		</main>
+
 		<% if flash[:alert] %>
 			<p id="alert">
 			<%= flash[:alert] %>
 			</p>	
 		<% end %>
-		<% if flash[:alert] %>
-			<p id="alert">
-				<%= flash[:alert] %>
+		<% if flash[:notice] %>
+			<p id="notice">
+				<%= flash[:notice] %>
 			</p>
 		<% end %>
-
-		<main>
-			<%= yield %>
-		</main>
 
 		<div style="clear: both">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> and <a href="http://www.icons8.com" title="Icons8">Icons8</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> are licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>
 </body>

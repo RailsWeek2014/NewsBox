@@ -1,9 +1,12 @@
-<h2>Einstellungen</h2>
-<h3>Liste der überwachten Seiten<h3>
-<p><%= link_to "Neue Seite", new_listener_path %></p>
-<p><%= link_to "Feeds Liste", feed_entries_path %></p>
-
+<div id="contentnavi">
+Einstellungen
+</div>
+<div id="pages_links">
+<%= link_to "Folge neuer Feedseite", new_listener_path %> | 
+<%= link_to "Zurück zur Liste", feed_entries_path %>
+</div>
+<div id="listeners">
 <ul>
 	<%= render @listeners %>
 </ul>
-<ul>
+</div>

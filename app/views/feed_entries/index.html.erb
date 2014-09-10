@@ -1,5 +1,5 @@
 <!== Search: https://github.com/activerecord-hackery/ransack ==>
-<div id="search">
+<div id="contentnavi">
   <%= search_form_for @q do |f| %>
     <%= f.label :Feed%>
     <%= f.search_field :name_cont %>
@@ -9,10 +9,6 @@
   <%end%>
 </div>
 
-  <%#= content_tag :table do %>
-    <%#= content_tag :th, sort_link(@q, :name) %>
-  <% #end %>
-
-<div id="feeds">
+<div id="feed_entries">
   <%= render @feed_entries %>
 </div>

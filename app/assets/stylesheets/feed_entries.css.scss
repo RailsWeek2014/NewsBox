@@ -1,58 +1,64 @@
 // Place all the styles related to the FeedEntrys controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-div#feeds{
-  /*background-color: yellow;*/
-  float:left;
+
+#feed_entries{
   display: flex;
   flex-flow: row wrap;
   align-content: space-around; 
-  width:100%;
-}
 
-div#entry{
-  /*background-color: brown;*/
-  border: 2px solid;
-  border-radius: 10px;
-  padding: 3px;
-  margin: 10px;
-  margin-left: 25px;
-  float:left;
-  width: 330px;
-  position:relative;
-}
+  #single_entry{
+    background-color: #716C67;
+    padding: 3px;
+    margin: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 350px;
+    position:relative;
+    border: 2px solid;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
 
-p{
-  clear: both;
-}
-
-div#ico{
   img{
     margin:10px; 
-    width: 60px;
-    heigt: 60px;
-    border: 0px solid;
-    position: absolute;
-    float:clear;
-    top: 60px;
-    left: -25px;
-    z-index: 2;
-  }
-}
-
-div#comments{
- position: absolute;
- bottom: 5px;
- right: 5px; 
-}
-
-div#search{
-  float:right;
-  margin-top: 80px;
-  margin-right: 25%;
+    width: 90px;
+    heigt: 90px;
+    float:left;
+    border: 2px solid;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+  } 
 }
 
 div#show_comment{
   border: 1px dotted;
   width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#details{
+  position: absolute;
+  bottom: 5px;
+  left: 120px;
+  font-weight: 600;
+}
+
+#comments{
+ position: absolute;
+ bottom: 5px;
+ right: 5px; 
+}
+
+#ico{
+  img{
+    width: 60px;
+    heigt: 60px;
+    border: 0px solid;
+    position: absolute;
+    top: 60px;
+    left: -25px;
+    z-index: 2;
+  }
 }
