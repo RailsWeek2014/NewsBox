@@ -32,19 +32,20 @@ class FeedEntry < ActiveRecord::Base
 
 	def self.add_entries(entries, listener)
 		entries.each do |entry|
-			if include_any? entry.title, listener.tags.split(/, /)
+			if include_any?(entry.title, listener.tags.split(/, /))|| listener.tags.empty?
 		    #if entry.ransack(name_or_summary_cont_any: listener.tags.split(/, /)).result.count > 0
 		    	unless exists? :guid => entry.id 
-		        create!(
-		          :name         => entry.title,
-		          :summary      => entry.summary,
-		          :url          => entry.url,
-		          :published_at => entry.published,
-		          :guid         => entry.id,
-		          :listener_id	=> listener.id,
-		          :image        => listener.image,
-		          :new          => true
-		        )
+			        create!(
+			          :name         => entry.title,
+			          :summary      => entry.summary,
+			          :url          => entry.url,
+			          :published_at => entry.published,
+			          :guid         => entry.id,
+			          :listener_id	=> listener.id,
+			          :image        => listener.image,
+			          :new          => true
+			        )
+			        UserMailer.send_rss(entry, "test@mail.de") 
 		    	end
 		    end
 	    end
