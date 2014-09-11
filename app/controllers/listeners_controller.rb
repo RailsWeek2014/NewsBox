@@ -14,7 +14,7 @@ class ListenersController < ApplicationController
 			redirect_to listeners_path,
 			notice: "Favorit #{@listener.title}wurde erfolgreich angelegt."
 		else
-			render action: "new"
+			render action: "new",
 		end
 	end
 
@@ -24,8 +24,8 @@ class ListenersController < ApplicationController
 
 	def update
 		@listener = Listener.find(params[:id])
+
 		if @listener.update_attributes(listener_params)
-			
 			redirect_to listeners_path
 		else
 			render action: "edit"
@@ -36,7 +36,8 @@ class ListenersController < ApplicationController
         @listener = Listener.find(params[:id])
         FeedEntry.remove_from_feed(@listener)
         @listener.destroy
-        redirect_to listeners_path, alert: "Link #{@listener.title} wurde erfolgreich gelöscht."
+        redirect_to listeners_path, 
+        notice: "Link #{@listener.title} wurde erfolgreich gelöscht."
     end
 
 private

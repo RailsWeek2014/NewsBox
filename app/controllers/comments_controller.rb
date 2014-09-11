@@ -9,8 +9,10 @@ class CommentsController < ApplicationController
   def create
   	@comment = Comment.new(comments_params)
 
+
   	if @comment.save
-  		redirect_to feed_entries_path
+  		redirect_to feed_entries_path, 
+      notice: "Comment #{@comment.title} wurde erfolgreich erstellt."
   	end
   end
 
@@ -21,7 +23,8 @@ class CommentsController < ApplicationController
   def delete
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to listeners_path, notice: "Comment #{@comment.title} wurde erfolgreich gelöscht."
+    redirect_to listeners_path, 
+    notice: "Comment #{@comment.title} wurde erfolgreich gelöscht."
   end
 
   private
