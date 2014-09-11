@@ -14,7 +14,7 @@ class ListenersController < ApplicationController
 			redirect_to listeners_path,
 			notice: "Favorit #{@listener.title}wurde erfolgreich angelegt."
 		else
-			render action: "new",
+			render action: "new"
 		end
 	end
 
