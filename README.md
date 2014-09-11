@@ -27,3 +27,7 @@ ransack Metasuche
 
 Image:
 selbst erstellt
+
+
+Rake Befehl:
+rake autoupdate:feed 
