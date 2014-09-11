@@ -14,13 +14,10 @@ class FeedEntry < ActiveRecord::Base
 		feed_old
 	end
 
-	def self.update_from_feed_continously(feed_url, delay_interval = 15.minutes)
-		feed = Feedjira::Feed.fetch_and_parse(feed_url)
-		add_entries(feed.entries)
+	def self.update_from_feed_continously(delay_interval = 15.minutes, user)
 		loop do 
 			sleep delay_interval
-			feed = Feedjira::Feed.update(feed)
-			add_entries(feed.new_entries) if feed.update?
+			update_from_feed(Listener.all.map(&:url), user)
 		end
 	end
 
