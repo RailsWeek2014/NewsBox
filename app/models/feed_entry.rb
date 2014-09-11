@@ -16,8 +16,8 @@ class FeedEntry < ActiveRecord::Base
 
 	def self.update_from_feed_continously(delay_interval = 30.minutes)
 		loop do 
-			sleep delay_interval
 			update_from_feed(Listener.all.map(&:url))
+			sleep delay_interval
 		end
 	end
 
