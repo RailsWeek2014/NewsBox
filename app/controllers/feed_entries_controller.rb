@@ -19,6 +19,10 @@ class FeedEntriesController < ApplicationController
 
 	def destroy
 		@feed_entry = FeedEntry.find(params[:id])
+		@comments = Comment.where(feed_entry_id: @feed_entry.id)
+		@comments.each do |d|
+			d.destroy
+		end
 		@feed_entry.destroy
 		redirect_to feed_entries_path, notice: "Feed #{@feed_entry.name} wurde erfolgreich gelöscht."
 	end

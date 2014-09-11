@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
 
   	if @comment.save
   		redirect_to feed_entries_path, 
-      notice: "Comment #{@comment.title} wurde erfolgreich erstellt."
+      notice: "Comment wurde erfolgreich erstellt."
   	end
   end
 
@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.destroy
     redirect_to listeners_path, 
-    notice: "Comment #{@comment.title} wurde erfolgreich gelöscht."
+    notice: "Comment wurde erfolgreich gelöscht."
   end
 
   private

@@ -17,6 +17,7 @@ class FeedEntry < ActiveRecord::Base
 	def self.update_from_feed_continously(delay_interval = 30.minutes)
 		loop do 
 			update_from_feed(Listener.all.map(&:url))
+			puts "Going to sleep"
 			sleep delay_interval
 		end
 	end
@@ -28,8 +29,8 @@ class FeedEntry < ActiveRecord::Base
 
 	def self.feed_old
 		FeedEntry.all.each do |feed_entry|
-			if Comment.where(feed_entry_id: feed_entry.id).count > 0
-				if feed_entry.published_at > 3.month.ago
+			if Comment.where(feed_entry_id: feed_entry.id).count < 1
+				if feed_entry.published_at < 3.month.ago
 					feed_entry.destroy
 				end	
 			end
