@@ -5,7 +5,6 @@ class FeedEntriesController < ApplicationController
 		@q = FeedEntry.search(params[:q])
 		@q.sorts = 'published_at desc'
 		@feed_entries = @q.result
-		#@feed_entries = FeedEntry.order('published_at desc')
 	end
 
 	def redirect 

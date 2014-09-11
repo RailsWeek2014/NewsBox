@@ -29,7 +29,7 @@ class FeedEntry < ActiveRecord::Base
 	def self.feed_old
 		FeedEntry.all.each do |feed_entry|
 			if Comment.where(feed_entry_id: feed_entry.id).count > 0
-				if feed_entry.published_at < 3.month.ago
+				if feed_entry.published_at > 3.month.ago
 					feed_entry.destroy
 				end	
 			end
@@ -41,23 +41,24 @@ class FeedEntry < ActiveRecord::Base
 
 	def self.add_entries(entries, listener)
 		entries.each do |entry|
-			if include_any?(entry.title, listener.tags.split(/, /))|| listener.tags.empty?
-		    #if entry.ransack(name_or_summary_cont_any: listener.tags.split(/, /)).result.count > 0
-		    	unless exists? :guid => entry.id 
-			        create!(
-			          :name         => entry.title,
-			          :summary      => entry.summary,
-			          :url          => entry.url,
-			          :published_at => entry.published,
-			          :guid         => entry.id,
-			          :listener_id	=> listener.id,
-			          :image        => listener.image,
-			          :new          => true
-			        )
-			        user = User.find(listener.user_id)
-			        UserMailer.send_rss(entry, user.email) 
-		    	end
-		    end
+			if entry.published > 3.month.ago
+				if include_any?(entry.title, listener.tags.split(/, /))|| listener.tags.empty?
+			    	unless exists? :guid => entry.id 
+				        create!(
+				          :name         => entry.title,
+				          :summary      => entry.summary,
+				          :url          => entry.url,
+				          :published_at => entry.published,
+				          :guid         => entry.id,
+				          :listener_id	=> listener.id,
+				          :image        => listener.image,
+				          :new          => true
+				        )
+				        user = User.find(listener.user_id)
+				        UserMailer.send_rss(entry, user.email) 
+			    	end
+			    end
+			end
 	    end
 	end
 
