@@ -11,6 +11,8 @@ class ListenersController < ApplicationController
 		@listener = Listener.new(listener_params)
 		if @listener.save
 			current_user.listeners << @listener
+			listener = Listener.all.map(&:url)
+			FeedEntry.update_from_feed(listener)
 			redirect_to listeners_path,
 			notice: "Favorit #{@listener.title}wurde erfolgreich angelegt."
 		else
