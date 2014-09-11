@@ -18,7 +18,9 @@ class FeedEntriesController < ApplicationController
 		@feed_entry = FeedEntry.find(params[:id])
 	end
 
-	def delete_feed
-		FeedEntry.find(params[:id]).destroy
+	def destroy
+		@feed_entry = FeedEntry.find(params[:id])
+		@feed_entry.destroy
+		redirect_to feed_entries_path, notice: "Feed #{@feed_entry.name} wurde erfolgreich gelöscht."
 	end
 end

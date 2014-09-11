@@ -1,5 +1,4 @@
 <div id="single_entry">
-
     <% entry_older feed_entry %>    
     <% if feed_entry.new? %>
      <div id="ico"> <%= image_tag("new.png") %> </div>
@@ -9,7 +8,10 @@
         <%=link_to feed_entry.name, feed_entry_redirect_path(feed_entry) %>
     </div>
     <div id="details">
-        <%= link_to 'Details', feed_entry_path(feed_entry)%>
+        <%= link_to 'Details', feed_entry_path(feed_entry)%> | 
+        <%= link_to "Löschen", feed_entry_path(feed_entry),
+                data: { confirm: "Feed #{feed_entry.name} wirklich löschen?" },
+                method: :delete %></b>     
     </div>
     <div id="comments">
         <%= link_to "Kommentar", new_feed_entry_comment_path(feed_entry) %>

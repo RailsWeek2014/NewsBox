@@ -11,6 +11,7 @@ class FeedEntry < ActiveRecord::Base
 			feed = feeds[d]
 			add_entries(feed.entries, listener, user)
 		end
+		feed_old
 	end
 
 	def self.update_from_feed_continously(feed_url, delay_interval = 15.minutes)
@@ -27,6 +28,15 @@ class FeedEntry < ActiveRecord::Base
 		feeds = FeedEntry.select(:id).where.not(id: (Comment.select(:feed_entry_id).distinct))
 		where(listener_id: listener.id, id: feeds).delete_all
 	end
+
+	def self.feed_old
+		FeedEntry.all.each do |feed_entry|
+			if feed_entry.published_at < 3.month.ago	
+				feed_entry.destroy
+			end	
+		end
+	end
+
 
 	private
 

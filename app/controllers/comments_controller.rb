@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
   def delete
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to listeners_path, alert: "Comment #{@comment.title} wurde erfolgreich gelöscht."
+    redirect_to listeners_path, notice: "Comment #{@comment.title} wurde erfolgreich gelöscht."
   end
 
   private
