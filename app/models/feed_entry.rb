@@ -28,6 +28,10 @@ class FeedEntry < ActiveRecord::Base
 		remove_entries(listener, feeds)
 	end
 
+	def self.remove_single_feed(feed_entry_id)
+		delete(feed_entry_id)
+	end
+
 	private
 
 	def self.add_entries(entries, listener, user)
