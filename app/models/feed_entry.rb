@@ -31,9 +31,11 @@ class FeedEntry < ActiveRecord::Base
 
 	def self.feed_old
 		FeedEntry.all.each do |feed_entry|
-			if feed_entry.published_at < 3.month.ago	
-				feed_entry.destroy
-			end	
+			if Comment.where(feed_entry_id: feed_entry.id).count > 0
+				if feed_entry.published_at < 3.month.ago
+					feed_entry.destroy
+				end	
+			end
 		end
 	end
 
