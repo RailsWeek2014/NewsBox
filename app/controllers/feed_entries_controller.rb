@@ -1,7 +1,7 @@
 class FeedEntriesController < ApplicationController
 	def index
-		listener = Listener.all.map(&:url)
-		FeedEntry.update_from_feed(listener, current_user)
+		#listener = Listener.all.map(&:url)
+		#FeedEntry.update_from_feed(listener)
 		@q = FeedEntry.search(params[:q])
 		@q.sorts = 'published_at desc'
 		@feed_entries = @q.result

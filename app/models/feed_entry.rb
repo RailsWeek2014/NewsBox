@@ -4,20 +4,20 @@ class FeedEntry < ActiveRecord::Base
 	belongs_to :listener
 	has_many :comments
 
-	def self.update_from_feed(feed_url, user)
+	def self.update_from_feed(feed_url)
 		feeds = Feedjira::Feed.fetch_and_parse(feed_url)
 		feed_url.each do |d|
 			listener = Listener.find_by(url: d)
 			feed = feeds[d]
-			add_entries(feed.entries, listener, user)
+			add_entries(feed.entries, listener)
 		end
 		feed_old
 	end
 
-	def self.update_from_feed_continously(delay_interval = 15.minutes, user)
+	def self.update_from_feed_continously(delay_interval = 30.minutes)
 		loop do 
 			sleep delay_interval
-			update_from_feed(Listener.all.map(&:url), user)
+			update_from_feed(Listener.all.map(&:url))
 		end
 	end
 
@@ -39,7 +39,7 @@ class FeedEntry < ActiveRecord::Base
 
 	private
 
-	def self.add_entries(entries, listener, user)
+	def self.add_entries(entries, listener)
 		entries.each do |entry|
 			if include_any?(entry.title, listener.tags.split(/, /))|| listener.tags.empty?
 		    #if entry.ransack(name_or_summary_cont_any: listener.tags.split(/, /)).result.count > 0
@@ -54,6 +54,7 @@ class FeedEntry < ActiveRecord::Base
 			          :image        => listener.image,
 			          :new          => true
 			        )
+			        user = User.find(listener.user_id)
 			        UserMailer.send_rss(entry, user.email) 
 		    	end
 		    end
