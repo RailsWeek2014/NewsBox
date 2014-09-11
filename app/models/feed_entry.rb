@@ -25,11 +25,7 @@ class FeedEntry < ActiveRecord::Base
 
 	def self.remove_from_feed(listener)
 		feeds = FeedEntry.select(:id).where.not(id: (Comment.select(:feed_entry_id).distinct))
-		remove_entries(listener, feeds)
-	end
-
-	def self.remove_single_feed(feed_entry_id)
-		delete(feed_entry_id)
+		where(listener_id: listener.id, id: feeds).delete_all
 	end
 
 	private
@@ -62,9 +58,5 @@ class FeedEntry < ActiveRecord::Base
 			end
 		end
 		false
-	end
-
-	def self.remove_entries(listener , feeds)
-		where(listener_id: listener.id, id: feeds).delete_all
 	end
 end
